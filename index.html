@@ -23,8 +23,7 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
 @media(max-width:430px){.topbar-right{display:none}.hero .today{max-width:135px}.frame-tools{align-items:flex-start}.frame-tools p{max-width:100%}.external-link{font-size:11px}.frame-wrap{min-height:360px}.home-card-icon{width:40px;height:40px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-.program-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.program-card{margin:0;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 7px 22px rgba(25,55,45,.06)}.program-card img{display:block;width:100%;height:auto;object-fit:contain;background:#f7f7f2}.program-card figcaption{padding:12px 15px;font-size:13px;font-weight:700;color:var(--pine)}.program-card.wide{grid-column:1/-1;max-width:780px;width:100%;justify-self:center}.program-card.wide img{max-height:1100px;object-fit:contain}.program-note{color:var(--muted);font-size:12px;margin:-5px 0 18px}
-@media(max-width:760px){.program-grid{grid-template-columns:1fr}.program-card.wide{grid-column:auto}}
+ .program-filter-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px}.program-filter-label{font-size:12px;font-weight:700;color:var(--muted)}.program-select{min-width:min(100%,320px);padding:11px 38px 11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--pine);font:600 13px var(--font-body)}.program-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}.program-card{display:none;margin:0;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 7px 22px rgba(25,55,45,.06);width:100%}.program-card.show{display:block}.program-card img{display:block;width:100%;height:auto;max-height:calc(100vh - 190px);object-fit:contain;background:#f7f7f2}.program-card figcaption{padding:12px 15px;font-size:13px;font-weight:700;color:var(--pine)}.program-help{color:var(--muted);font-size:12px;margin:0 0 14px} .contact-link{display:inline-flex;align-items:center;gap:7px;color:#176b43;text-decoration:none;font-weight:700;font-size:12px;padding:8px 11px;border:1px solid #c9e3d2;border-radius:9px;background:#f1faf4}.contact-link:hover{background:#e3f5e9;border-color:#9ac9aa}
 
 </style>
 </head>
@@ -41,13 +40,21 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
       <button class="nav-btn" type="button" data-view="gadai"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2.5"/><circle cx="12" cy="11.5" r="3.2"/><path d="M12 8.3v1.4M12 13.3v1.4M8.8 11.5h1.4M13.8 11.5h1.4M7 19v2M17 19v2"/></svg></span><span class="nav-text">Departemen Gadai</span></button>
       <button class="nav-btn" type="button" data-view="nongadai"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9.5 8h5M9.5 12h5M9.5 16h3"/></svg></span><span class="nav-text">Departemen Non Gadai</span></button>
       <button class="nav-btn" type="button" data-view="sales"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.3 10.8 7.4-4M8.3 13.2l7.4 4"/></svg></span><span class="nav-text">Sales Channel</span></button>
-      <button class="nav-btn" type="button" data-view="program-oktober"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h6"/></svg></span><span class="nav-text">Program Area Oktober 2026</span></button>
       <div class="nav-group">
         <button class="nav-btn parent" id="kpi-toggle" type="button" aria-expanded="false" aria-controls="kpi-subnav"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M8 16v-4M13 16V6M18 16V9"/></svg></span><span class="nav-text">KPI</span><span class="nav-chevron"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
         <div class="subnav" id="kpi-subnav">
           <button class="nav-btn" type="button" data-view="kpi-unit"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15v-3M12 15V8M17 15v-5"/></svg></span><span class="nav-text">KPI Unit Kerja</span></button>
           <button class="nav-btn" type="button" data-view="kpi-individu"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="nav-text">KPI Individu</span></button>
           <button class="nav-btn" type="button" data-view="kpi-detail"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span><span class="nav-text">Detail Komponen KPI</span></button>
+        </div>
+      </div>
+      <div class="nav-group" style="margin-top:5px">
+        <button class="nav-btn parent" id="program-toggle" type="button" aria-expanded="false" aria-controls="program-subnav"><span class="nav-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h6"/></svg></span><span class="nav-text">Program Area Oktober 2026</span><span class="nav-chevron"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="subnav" id="program-subnav">
+          <button class="nav-btn" type="button" data-view="program-oktober" data-program-filter="all"><span class="nav-text">Semua Program</span></button>
+          <button class="nav-btn" type="button" data-view="program-oktober" data-program-filter="personal"><span class="nav-text">Cicil Emas Personal</span></button>
+          <button class="nav-btn" type="button" data-view="program-oktober" data-program-filter="festival"><span class="nav-text">Festival Tring!</span></button>
+          <button class="nav-btn" type="button" data-view="program-oktober" data-program-filter="area"><span class="nav-text">Program Area Senen</span></button>
         </div>
       </div>
     </nav>
@@ -76,7 +83,7 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
       <div class="today" id="today"></div>
     </div>
 
-    <h1 id="greeting">Selamat datang, Senen.</h1>
+    <h1 id="greeting">Selamat datang,</h1>
     <p class="lead">Satu pintu untuk semua layanan di area Senen. Pilih menu di bawah untuk membuka halamannya.</p>
   </div>
 
@@ -245,11 +252,12 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
       </section>
       <section class="view" id="view-program-oktober">
         <div class="page-heading"><div><h1>Program Area Oktober 2026</h1><p>Kumpulan materi promosi dan program Area Senen untuk periode Oktober 2026.</p></div><span class="page-chip"><span class="status-dot" aria-hidden="true"></span> 3 Materi Program</span></div>
-        <p class="program-note">Pilih gambar untuk melihat materi dalam ukuran penuh. Materi ditampilkan sesuai file yang diberikan.</p>
-        <div class="program-grid">
-          <figure class="program-card"><a href="assets/diskon-uang-muka.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Promo Cicil Emas Personal — Diskon Uang Muka ukuran penuh"><img src="assets/diskon-uang-muka.jpeg" alt="Promo Cicil Emas Personal — Diskon Uang Muka" loading="lazy"></a><figcaption>Promo Cicil Emas Personal — Diskon Uang Muka</figcaption></figure>
-          <figure class="program-card"><a href="assets/promo-festival-tring.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Promo Spesial Festival Tring! — Kode Promo Cicil Emas ukuran penuh"><img src="assets/promo-festival-tring.jpeg" alt="Promo Spesial Festival Tring! — Kode Promo Cicil Emas" loading="lazy"></a><figcaption>Promo Spesial Festival Tring! — Kode Promo Cicil Emas</figcaption></figure>
-          <figure class="program-card wide"><a href="assets/program-area-senen-oktober-2026.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Program Area Senen — Oktober 2026 ukuran penuh"><img src="assets/program-area-senen-oktober-2026.jpeg" alt="Program Area Senen — Oktober 2026" loading="lazy"></a><figcaption>Program Area Senen — Oktober 2026</figcaption></figure>
+        <div class="program-filter-row"><label class="program-filter-label" for="program-filter">Tampilkan materi</label><select class="program-select" id="program-filter"><option value="all">Semua Program</option><option value="personal">Promo Cicil Emas Personal — Diskon Uang Muka</option><option value="festival">Promo Spesial Festival Tring!</option><option value="area">Program Area Senen — Oktober 2026</option></select></div>
+        <p class="program-help">Pilih program melalui daftar di atas atau submenu sidebar. Mode “Semua Program” menampilkan satu materi penuh dalam satu baris agar rapi.</p>
+        <div class="program-grid" id="program-grid">
+          <figure class="program-card show" data-program="personal"><a href="assets/diskon-uang-muka.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Promo Cicil Emas Personal ukuran penuh"><img src="assets/diskon-uang-muka.jpeg" alt="Promo Cicil Emas Personal — Diskon Uang Muka" loading="lazy"></a><figcaption>Promo Cicil Emas Personal — Diskon Uang Muka</figcaption></figure>
+          <figure class="program-card show" data-program="festival"><a href="assets/promo-festival-tring.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Promo Spesial Festival Tring ukuran penuh"><img src="assets/promo-festival-tring.jpeg" alt="Promo Spesial Festival Tring! — Kode Promo Cicil Emas" loading="lazy"></a><figcaption>Promo Spesial Festival Tring! — Kode Promo Cicil Emas</figcaption></figure>
+          <figure class="program-card show" data-program="area"><a href="assets/program-area-senen-oktober-2026.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Program Area Senen Oktober 2026 ukuran penuh"><img src="assets/program-area-senen-oktober-2026.jpeg" alt="Program Area Senen — Oktober 2026" loading="lazy"></a><figcaption>Program Area Senen — Oktober 2026</figcaption></figure>
         </div>
       </section>
       <section class="view" id="view-sales">
@@ -258,24 +266,21 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
       </section>
       <section class="view" id="view-kpi-unit">
         <div class="page-heading"><div><h1>KPI Unit Kerja</h1><p>Dashboard KPI Unit Kerja dari Looker Studio.</p></div><span class="page-chip"><span class="status-dot" aria-hidden="true"></span> Dashboard KPI</span></div>
-        <div class="frame-tools"><p>Dashboard KPI Unit Kerja</p><a class="external-link" href="#" data-url-ref="kpiUnitKerja" target="_blank" rel="noopener noreferrer">Buka laporan asli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg></a></div>
+        <div class="frame-tools"><p>Dashboard KPI Unit Kerja</p><a class="contact-link" href="https://wa.me/62895375431585" target="_blank" rel="noopener noreferrer">Untuk pertanyaan silakan klik ini</a></div>
         <div class="frame-wrap"><iframe title="Dashboard KPI Unit Kerja" data-source="kpiUnitKerja" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <p class="note">Catatan: penyematan Looker Studio perlu diaktifkan pada laporan sumber. Jika dashboard tidak muncul, gunakan tautan laporan asli atau ganti URL iframe dengan URL resmi dari File → Embed report → Embed URL.</p>
       </section>
       <section class="view" id="view-kpi-individu">
         <div class="page-heading"><div><h1>KPI Individu</h1><p>Dashboard KPI Individu.</p></div><span class="page-chip"><span class="status-dot" aria-hidden="true"></span> Slot disiapkan</span></div>
         <div class="placeholder" id="kpi-individu-placeholder"><div class="placeholder-inner"><div class="placeholder-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h2>KPI Individu</h2><p>Bagian ini sengaja dikosongkan dulu. Nanti URL KPI Individu tinggal diisi di konfigurasi portal, tanpa perlu membangun ulang sidebar.</p><span class="soon-tag">Dashboard belum dipasang</span></div></div>
         <div id="kpi-individu-frame-panel" hidden>
-          <div class="frame-tools"><p>Dashboard KPI Individu</p><a class="external-link" href="#" data-url-ref="kpiIndividu" target="_blank" rel="noopener noreferrer">Buka laporan asli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg></a></div>
+          <div class="frame-tools"><p>Dashboard KPI Individu</p><a class="contact-link" href="https://wa.me/6285710105038" target="_blank" rel="noopener noreferrer">Untuk pertanyaan silakan klik ini</a></div>
           <div class="frame-wrap"><iframe title="Dashboard KPI Individu" data-source="kpiIndividu" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <p class="note">Jika dashboard tidak muncul, periksa izin berbagi dan gunakan URL resmi penyematan Looker Studio.</p>
         </div>
       </section>
       <section class="view" id="view-kpi-detail">
         <div class="page-heading"><div><h1>Detail Komponen KPI</h1><p>Portal monitoring detail komponen KPI dari GitHub.</p></div><span class="page-chip"><span class="status-dot" aria-hidden="true"></span> Portal terintegrasi</span></div>
-        <div class="frame-tools"><p>Monitoring Area Senen · Detail Komponen KPI</p><a class="external-link" href="#" data-url-ref="detailKomponenKPI" target="_blank" rel="noopener noreferrer">Buka di tab baru <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg></a></div>
+        <div class="frame-tools"><p>Monitoring Area Senen · Detail Komponen KPI</p><a class="contact-link" href="https://wa.me/62895375431585" target="_blank" rel="noopener noreferrer">Untuk pertanyaan silakan klik ini</a></div>
         <div class="frame-wrap"><iframe title="Detail Komponen KPI" data-source="detailKomponenKPI" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <p class="note">Jika portal tidak bisa disematkan karena kebijakan situs sumber, gunakan tautan “Buka di tab baru”.</p>
       </section>
     </main>
     <footer class="footer"><span>Portal Area Senen · Jakarta Pusat</span><span>Satu pintu untuk layanan dan monitoring kinerja area.</span></footer>
@@ -287,7 +292,7 @@ main{width:100%;max-width:1600px;margin:0 auto;padding:25px clamp(16px,3vw,36px)
 const PORTAL_URLS = {
   nonGadai: 'https://tiarianda12.github.io/PortalNonGadaiSenen/',
   kpiUnitKerja: 'https://datastudio.google.com/embed/reporting/bba2ddd6-9259-4242-899f-8ce839ebf43c/page/p_rgbgq4ed8d',
-  kpiIndividu: '',
+  kpiIndividu: 'https://datastudio.google.com/embed/reporting/af530f32-08f4-4b5a-896a-6c0384b84a4f',
   detailKomponenKPI: 'https://harizkypratama.github.io/monitoringareasenen/'
 };
 const viewTitles = {
@@ -298,6 +303,9 @@ const navButtons = Array.from(document.querySelectorAll('.nav-btn[data-view]'));
 const views = Array.from(document.querySelectorAll('.view'));
 const kpiToggle = document.getElementById('kpi-toggle');
 const kpiSubnav = document.getElementById('kpi-subnav');
+const programToggle = document.getElementById('program-toggle');
+const programSubnav = document.getElementById('program-subnav');
+const programFilter = document.getElementById('program-filter');
 const sidebar = document.getElementById('sidebar');
 const shade = document.getElementById('mobile-shade');
 function applyPortalUrls(){
@@ -330,17 +338,24 @@ function setView(name){
     if(active) btn.setAttribute('aria-current','page'); else btn.removeAttribute('aria-current');
   });
   const isKpi=name.startsWith('kpi-');
+  const isProgram=name==='program-oktober';
   kpiSubnav.classList.toggle('open', isKpi);
   kpiToggle.setAttribute('aria-expanded', String(isKpi));
   kpiToggle.classList.toggle('active', isKpi);
+  programToggle.setAttribute('aria-expanded',String(isProgram));
+  programSubnav.classList.toggle('open',isProgram);
+  programToggle.classList.toggle('active',isProgram);
   document.getElementById('crumb-title').textContent=viewTitles[name];
   document.title=viewTitles[name]+' | Portal Area Senen';
   ensureFrameLoaded(name);
   closeMobileNav();
   window.scrollTo({top:0,behavior:'smooth'});
 }
-navButtons.forEach(btn=>btn.addEventListener('click',()=>setView(btn.dataset.view)));
+navButtons.forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.programFilter){setProgramFilter(btn.dataset.programFilter);}setView(btn.dataset.view);}));
 document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>setView(btn.dataset.go)));
+programToggle.addEventListener('click',()=>{const open=!programSubnav.classList.contains('open');programSubnav.classList.toggle('open',open);programToggle.setAttribute('aria-expanded',String(open));});
+function setProgramFilter(value){if(programFilter)programFilter.value=value;document.querySelectorAll('.program-card').forEach(card=>card.classList.toggle('show',value==='all'||card.dataset.program===value));}
+if(programFilter)programFilter.addEventListener('change',()=>setProgramFilter(programFilter.value));
 kpiToggle.addEventListener('click',()=>{
   const open=!kpiSubnav.classList.contains('open');
   kpiSubnav.classList.toggle('open',open);
@@ -349,7 +364,7 @@ kpiToggle.addEventListener('click',()=>{
 function closeMobileNav(){document.body.classList.remove('sidebar-open');shade.classList.remove('show');}
 document.getElementById('hamburger').addEventListener('click',()=>{document.body.classList.add('sidebar-open');shade.classList.add('show');});
 shade.addEventListener('click',closeMobileNav);
-function updateDate(){const now=new Date();document.getElementById('top-date').textContent=now.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});const h=now.getHours();const greeting=h<11?'Selamat pagi':h<15?'Selamat siang':h<18?'Selamat sore':'Selamat malam';const greet=document.getElementById('greeting');if(greet)greet.textContent=greeting+', Senen.';const today=document.getElementById('today');if(today)today.textContent=now.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+function updateDate(){const now=new Date();document.getElementById('top-date').textContent=now.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});const h=now.getHours();const greeting=h<11?'Selamat pagi':h<15?'Selamat siang':h<18?'Selamat sore':'Selamat malam';const greet=document.getElementById('greeting');if(greet)greet.textContent=greeting+',';const today=document.getElementById('today');if(today)today.textContent=now.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
 updateDate();
 </script>
 </body>
